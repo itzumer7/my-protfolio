@@ -14,38 +14,62 @@ const THUMBNAILS = [
   {
     title: "Space Explorer",
     description: "An epic cinematic render of an astronaut witnessing the awe-inspiring power of a massive black hole.",
-    image: "/images/thumb5.png",
+    image: "/images/space.png",
     tags: ["Thumbnail", "Cinematic", "Space"],
   },
   {
-    title: "Life Tycoon",
+    title: "FPS ACTION",
     description: "A vibrant collage showcasing the diverse lifestyle and luxury elements of a tycoon experience.",
-    image: "/images/thumb4.png",
-    tags: ["Thumbnail", "Tycoon", "Collage"],
+    image: "/images/fpp.png",
+    tags: ["Thumbnail", "fps", "Collage"],
   },
   {
     title: "Ice Cave Discovery",
     description: "Atmospheric exploration scene featuring a character navigating a mysterious frozen cavern with a lantern.",
-    image: "/images/thumb1.png",
+    image: "/images/ice.png",
     tags: ["Thumbnail", "Atmospheric", "Adventure"],
   },
   {
     title: "Slap Tower Obby",
     description: "High-energy action thumbnail for a fast-paced tower climbing and slapping game.",
-    image: "/images/thumb2.png",
+    image: "/images/slap.png",
     tags: ["Thumbnail", "Action", "Roblox"],
   },
   {
     title: "Donate Me",
     description: "Engaging social interaction scene designed for donation-based simulator games.",
-    image: "/images/thumb6.png",
+    image: "/images/done.png",
     tags: ["Thumbnail", "Social", "Simulator"],
   },
   {
     title: "Noob vs Pro Evolution",
     description: "High-CTR comparison thumbnail designed to showcase character progression and power scaling.",
-    image: "/images/thumb3.png",
+    image: "/images/peo.png",
     tags: ["Thumbnail", "CTR", "Roblox"],
+  },
+  {
+    title: "Horror Game",
+    description: "Placeholder for upcoming game thumbnail project.",
+    image: "/images/ate.png",
+    tags: ["Thumbnail", "Coming Soon"],
+  },
+  {
+    title: "Prison Escape",
+    description: "Placeholder for upcoming game thumbnail project.",
+    image: "/images/te.png",
+    tags: ["Thumbnail", "Coming Soon"],
+  },
+  {
+    title: "Island Survival",
+    description: "Placeholder for upcoming game thumbnail project.",
+    image: "/images/sur.png",
+    tags: ["Thumbnail", "Coming Soon"],
+  },
+  {
+    title: "Power Up",
+    description: "Placeholder for upcoming game thumbnail project.",
+    image: "/images/e.png",
+    tags: ["Thumbnail", "Coming Soon"],
   }
 ];
 
@@ -80,13 +104,13 @@ const SKIN_GFX = [
   {
     title: "Neon Boy Skin",
     description: "Vibrant neon-themed character design with high-contrast lighting.",
-    image: "/images/skin1.jpeg",
+    image: "/images/13.png",
     tags: ["Skin GFX", "Neon", "Character"],
   },
   {
     title: "Male Agent Skin",
     description: "Sleek and professional agent character design with tactical gear.",
-    image: "/images/skin2.jpeg",
+    image: "/images/12.png",
     tags: ["Skin GFX", "Agent", "Tactical"],
   }
 ];
@@ -103,6 +127,33 @@ const ICONS_UI = [
     description: "Custom game icons and UI elements designed for clarity and style.",
     image: "/images/100.png",
     tags: ["UI", "Icons", "16:9"],
+  }
+];
+
+const PROFILE_PICTURES = [
+  {
+    title: "PFP 1",
+    description: "Custom profile picture design for social media and gaming platforms.",
+    image: "/images/1.png",
+    tags: ["Profile Picture", "Custom", "Design"],
+  },
+  {
+    title: "PFP 2",
+    description: "Custom profile picture design for social media and gaming platforms.",
+    image: "/images/2.png",
+    tags: ["Profile Picture", "Custom", "Design"],
+  },
+  {
+    title: "PFP 3",
+    description: "Custom profile picture design for social media and gaming platforms.",
+    image: "/images/3.png",
+    tags: ["Profile Picture", "Custom", "Design"],
+  },
+  {
+    title: "PFP 4",
+    description: "Custom profile picture design for social media and gaming platforms.",
+    image: "/images/4.png",
+    tags: ["Profile Picture", "Custom", "Design"],
   }
 ];
 
@@ -190,13 +241,13 @@ export default function App() {
 
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 0.6,
+      duration: 0.7,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 0.4,
-      touchMultiplier: 0.4,
+      wheelMultiplier: 1,
+      touchMultiplier: 1,
       infinite: false,
       syncTouch: true,
     });
@@ -338,6 +389,7 @@ export default function App() {
                         image={project.image}
                         tags={project.tags}
                         aspectRatio="16:9"
+                        loading={index < 2 ? "eager" : "lazy"}
                       />
                   ))}
                 </div>
@@ -384,6 +436,29 @@ export default function App() {
                         image={project.image}
                         tags={project.tags}
                         aspectRatio="16:9"
+                      />
+                  ))}
+                </div>
+              </section>
+
+              {/* Profile Pictures */}
+              <section 
+                className="px-4 md:px-8 lg:px-12 max-w-7xl mx-auto"
+              >
+                <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
+                  <div className="space-y-1">
+                    <h2 className="text-3xl md:text-5xl font-black tracking-tighter uppercase">PROFILE PICTURES</h2>
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-10 lg:gap-12">
+                  {PROFILE_PICTURES.map((project, index) => (
+                      <ProjectCard 
+                        key={index}
+                        title={project.title}
+                        description={project.description}
+                        image={project.image}
+                        tags={project.tags}
+                        aspectRatio="1:1"
                       />
                   ))}
                 </div>

@@ -7,10 +7,11 @@ interface ProjectCardProps {
   image: string;
   tags: string[];
   aspectRatio?: "1:1" | "16:9" | "16:10";
+  loading?: "lazy" | "eager";
   key?: string | number;
 }
 
-const ProjectCardComponent = ({ title, image, aspectRatio = "16:10" }: ProjectCardProps) => {
+const ProjectCardComponent = ({ title, image, aspectRatio = "16:10", loading = "lazy" }: ProjectCardProps) => {
   const aspectClass = aspectRatio === "1:1" ? "aspect-square" : aspectRatio === "16:9" ? "aspect-video" : "aspect-[16/10]";
 
   return (
@@ -27,7 +28,7 @@ const ProjectCardComponent = ({ title, image, aspectRatio = "16:10" }: ProjectCa
         <motion.img
           src={image}
           alt={title}
-          loading="lazy"
+          loading={loading}
           className="h-full w-full object-cover"
           whileHover={{ scale: 1.08 }}
           transition={{ duration: 0.3, ease: "easeOut" }}

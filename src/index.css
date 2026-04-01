@@ -9,9 +9,13 @@
 }
 
 @layer base {
-  body {
-    @apply bg-[var(--color-bg)] text-white selection:bg-[var(--color-accent)] selection:text-white;
+  html, body {
+    background: url('/images/bg.png') center center/cover no-repeat fixed;
+    background-attachment: fixed;
+    background-color: #000000;
+    color: #e5e7eb;
     font-family: 'Inter', system-ui, sans-serif;
+    min-height: 100vh;
   }
 }
 

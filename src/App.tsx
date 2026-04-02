@@ -699,6 +699,14 @@ export default function App() {
               borderTop: '1px solid rgba(255, 255, 255, 0.1)'
             }}>
               <div>© 2026 ITZ_UMER PORTFOLIO. ALL RIGHTS RESERVED.</div>
+              <a 
+                href="https://gemini.google.com/share/0b9e75cb03dd"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/40 hover:text-orange-500 transition-colors duration-200"
+              >
+                AI PROMPT
+              </a>
             </footer>
           </main>
 
